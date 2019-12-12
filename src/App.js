@@ -4,13 +4,13 @@ import Form from './componets/form';
 import Zvonobot from './componets/zvonobot';
 import './App.css';
 
-const API_KEY = "WaTt7Z7rGvo3K1CbqGVPJujq6TGRqkkDGfnpm6rKLPnxEUaAPETaiOhnrtVT";
+const API_KEY = "PJDJ6bpsT1g1SCsiQiwxHWrylMPoxXMmP9xZiFtFqzIbTYCvNw6gowsVkt8U";
 
 class App extends React.Component{
     state = {
         status: undefined,
-        createdAt: undefined,
-        id: undefined,
+        createDate: undefined,
+        ids: undefined,
         phone: undefined,
         errorMessage: undefined,
     };
@@ -33,12 +33,11 @@ class App extends React.Component{
                     headers:{'content-type': 'application/json'}
                 });
             const result = await api_url.json();
-            console.log(result);
             this.setState({
-                status: result.status,
-                createdAt: result.data[0].createdAt,
-                id: result.data[0].id,
-                phone: result.data[0].phone,
+                status: (result.status)? result.status: "error",
+                createdAt: (result.status === 'success')? result.data[0].createdAt : "",
+                ids: (result.status === 'success')? result.data[0].id : "",
+                phone: (result.status === 'success')? result.data[0].phone: "",
                 errorMessage: (result.status === 'error')? result.data[0].message : "",
             });
         }
@@ -51,7 +50,7 @@ class App extends React.Component{
                 <Zvonobot
                     status={this.state.status}
                     createdAt={this.state.createdAt}
-                    id={this.state.id}
+                    ids={this.state.id}
                     phone={this.state.phone}
                     errorMessage={this.state.errorMessage}
                 />

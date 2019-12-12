@@ -15,9 +15,9 @@ class Zvonobot extends React.Component{
                         <p>Date Create: {this.props.createdAt}</p>
                     </div>
                 }
-                { this.props.id && this.props.status === 'success' &&
+                { this.props.ids && this.props.status === 'success' &&
                     <div>
-                        <p>ID: {this.props.id}</p>
+                        <p>ID: {this.props.ids}</p>
                     </div>
                 }
                 { this.props.phone && this.props.status === 'success' &&
