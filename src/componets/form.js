@@ -5,7 +5,8 @@ class Form extends React.Component{
         return(
             <form onSubmit={this.props.crateCallMethod}>
                 <h2>Form</h2>
-                <input type={"Text"} name={"phone"} placeholder={"phone"} />
+                <input type={"text"} name={"phone"} placeholder={"79999999999"} />
+                <input type={"text"} name={"message"} placeholder={"message..."}/>
                 <button>Send /></button>
             </form>
         );
