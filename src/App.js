@@ -30,7 +30,7 @@ class App extends React.Component{
                             "gender": 0,
                         },
                     }),
-                    // headers:{'content-type': 'application/json'}
+                    headers:{'content-type': 'application/json'}
                 });
             const result = await api_url.json();
             this.setState({
